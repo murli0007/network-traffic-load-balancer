@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Load Balancer Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #172554;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #172554;
+            color: white;
+        }
+
+        .online {
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>⚡ Network Traffic Load Balancer</h1>
+
+    <p>Real-Time Server Monitoring Dashboard</p>
+
+</header>
+
+<div class="container">
+
+    <div class="dashboard">
+
+        <div class="card">
+
+            <h2>Server 1</h2>
+
+            <p id="s1">Loading...</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Server 2</h2>
+
+            <p id="s2">Loading...</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Server 3</h2>
+
+            <p id="s3">Loading...</p>
+
+        </div>
+
+    </div>
+
+
+    <h2>📊 Request Distribution</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Server</th>
+                <th>Port</th>
+                <th>Total Requests</th>
+                <th>Active</th>
+                <th>Success</th>
+                <th>Failed</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="table"></tbody>
+
+    </table>
+
+    <br>
+
+    <a href="/" class="admin-link">
+        ← Back to Ticket Booking
+    </a>
+
+</div>
+
+
+<script>
+
+async function loadStats() {
+
+    try {
+
+        const response = await fetch("/admin/stats");
+
+        const data = await response.json();
+
+        const table = document.getElementById("table");
+
+        table.innerHTML = "";
+
+        data.forEach((server, index) => {
+
+            document.getElementById(
+                "s" + (index + 1)
+            ).innerHTML =
+                `Port: ${server.port}<br>
+                 Requests: ${server.requests}<br>
+                 Active: ${server.active}<br>
+                 <span class="online">● ONLINE</span>`;
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>${server.server}</td>
+
+                    <td>${server.port}</td>
+
+                    <td>${server.requests}</td>
+
+                    <td>${server.active}</td>
+
+                    <td>${server.success}</td>
+
+                    <td>${server.failed}</td>
+
+                </tr>
+
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+loadStats();
+
+setInterval(loadStats, 1000);
+
+</script>
+
+</body>
+
+</html>

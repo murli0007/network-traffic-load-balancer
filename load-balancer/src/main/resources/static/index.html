@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sports Event Cloud Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏟️ SportX
+    </div>
+
+    <div class="nav-links">
+        <a href="#events">Events</a>
+        <a href="/admin.html">Admin Dashboard</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="tag">COMPUTER NETWORKS PBL</p>
+
+        <h1>
+            Sports Event<br>
+            <span>Cloud Platform</span>
+        </h1>
+
+        <p>
+            Book tickets seamlessly while our network
+            load balancer distributes traffic across
+            multiple servers.
+        </p>
+
+        <button onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">
+            Explore Events ↓
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTS -->
+
+<section id="events" class="events-section">
+
+    <div class="section-heading">
+
+        <p class="small-title">LIVE & UPCOMING</p>
+
+        <h2>Choose Your Event</h2>
+
+        <p>
+            Experience smooth ticket booking even during
+            high-traffic events.
+        </p>
+
+    </div>
+
+
+    <div class="events-grid">
+
+
+        <!-- CRICKET -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1774199786667-15f694d807a5?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200"
+                    alt="Cricket stadium">
+
+                <span class="live-badge">
+                    🔴 BOOKING OPEN
+                </span>
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="sport">🏏 CRICKET</span>
+
+                <h3>Championship Cricket Night</h3>
+
+                <p>🏟️ Arun Jaitley Stadium</p>
+
+                <p>📅 15 October 2026 &nbsp; • &nbsp; 7:30 PM</p>
+
+                <div class="event-bottom">
+
+                    <strong>From ₹499</strong>
+
+                    <button
+                        class="book-now"
+                        onclick="openBooking('Championship Cricket Night')">
+                        BOOK NOW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTBALL -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1769859178068-499236cb9a87?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200"
+                    alt="Football stadium">
+
+                <span class="live-badge">
+                    🔴 BOOKING OPEN
+                </span>
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="sport">⚽ FOOTBALL</span>
+
+                <h3>National Football League</h3>
+
+                <p>🏟️ City Sports Arena</p>
+
+                <p>📅 22 October 2026 &nbsp; • &nbsp; 6:00 PM</p>
+
+                <div class="event-bottom">
+
+                    <strong>From ₹399</strong>
+
+                    <button
+                        class="book-now"
+                        onclick="openBooking('National Football League')">
+                        BOOK NOW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TENNIS -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1780087585348-681c2bee2634?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200"
+                    alt="Tennis stadium">
+
+                <span class="coming-badge">
+                    COMING SOON
+                </span>
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="sport">🎾 TENNIS</span>
+
+                <h3>International Tennis Masters</h3>
+
+                <p>🏟️ Grand Tennis Arena</p>
+
+                <p>📅 Coming Soon</p>
+
+                <div class="event-bottom">
+
+                    <strong>Stay Tuned</strong>
+
+                    <button class="coming-btn" disabled>
+                        COMING SOON
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BASKETBALL -->
+
+        <div class="event-card">
+
+            <div class="event-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1771882856158-c8e083134ee3?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=80&w=1200"
+                    alt="Basketball arena">
+
+                <span class="coming-badge">
+                    COMING SOON
+                </span>
+
+            </div>
+
+            <div class="event-content">
+
+                <span class="sport">🏀 BASKETBALL</span>
+
+                <h3>Pro Basketball Night</h3>
+
+                <p>🏟️ Indoor Sports Arena</p>
+
+                <p>📅 Coming Soon</p>
+
+                <div class="event-bottom">
+
+                    <strong>Stay Tuned</strong>
+
+                    <button class="coming-btn" disabled>
+                        COMING SOON
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BOOKING SECTION -->
+
+<section id="booking" class="booking-section">
+
+    <button class="back-btn" onclick="closeBooking()">
+        ← Back to Events
+    </button>
+
+    <div class="booking-header">
+
+        <span class="sport">🎟️ TICKET BOOKING</span>
+
+        <h2 id="eventTitle">
+            Select Your Seat
+        </h2>
+
+        <p>
+            Choose your preferred seat and complete your booking.
+        </p>
+
+    </div>
+
+
+    <!-- LEGEND -->
+
+    <div class="legend">
+
+        <span>
+            <i class="legend-seat available"></i>
+            Available
+        </span>
+
+        <span>
+            <i class="legend-seat selected"></i>
+            Selected
+        </span>
+
+        <span>
+            <i class="legend-seat booked"></i>
+            Booked
+        </span>
+
+    </div>
+
+
+    <!-- SEATS -->
+
+    <div id="seats" class="seats">
+
+        Loading seats...
+
+    </div>
+
+
+    <div class="booking-panel">
+
+        <h3 id="selected">
+            Selected Seat: None
+        </h3>
+
+        <button
+            class="confirm-btn"
+            onclick="bookSeat()">
+
+            🎟️ BOOK TICKET
+
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        SportX — Sports Event Cloud Platform
+    </p>
+
+    <p>
+        Computer Networks PBL • Load Balancing Simulation
+    </p>
+
+</footer>
+
+
+<script>
+
+let selectedSeat = null;
+
+let selectedEvent = "";
+
+
+function openBooking(eventName) {
+
+    selectedEvent = eventName;
+
+    document.getElementById("eventTitle").innerText =
+        eventName;
+
+    document.getElementById("events").style.display =
+        "none";
+
+    document.querySelector(".hero").style.display =
+        "none";
+
+    document.getElementById("booking").style.display =
+        "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    loadSeats();
+}
+
+
+function closeBooking() {
+
+    document.getElementById("booking").style.display =
+        "none";
+
+    document.getElementById("events").style.display =
+        "block";
+
+    document.querySelector(".hero").style.display =
+        "flex";
+
+    selectedSeat = null;
+
+    document.getElementById("result").innerHTML = "";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+async function loadSeats() {
+
+    const container =
+        document.getElementById("seats");
+
+    container.innerHTML =
+        "Loading seats...";
+
+    try {
+
+        const response =
+            await fetch("/api/seats");
+
+        const seats =
+            await response.json();
+
+        container.innerHTML = "";
+
+        seats.slice(0, 50).forEach(seat => {
+
+            const button =
+                document.createElement("button");
+
+            button.innerText =
+                seat.id;
+
+            button.className =
+                "seat " +
+                (seat.booked
+                    ? "booked"
+                    : "available");
+
+            if (!seat.booked) {
+
+                button.onclick = () => {
+
+                    selectedSeat =
+                        seat.id;
+
+                    document
+                        .querySelectorAll(".seat")
+                        .forEach(s =>
+                            s.classList.remove("selected")
+                        );
+
+                    button.classList.add("selected");
+
+                    document.getElementById("selected")
+                        .innerText =
+                        "Selected Seat: " +
+                        selectedSeat;
+
+                };
+
+            }
+
+            container.appendChild(button);
+
+        });
+
+    } catch (error) {
+
+        container.innerHTML =
+            "Unable to load seats.";
+
+    }
+
+}
+
+
+async function bookSeat() {
+
+    if (!selectedSeat) {
+
+        alert("Please select a seat first.");
+
+        return;
+
+    }
+
+
+    const response =
+        await fetch(
+            `/book?seat=${selectedSeat}`,
+            {
+                method: "POST"
+            }
+        );
+
+
+    const result =
+        await response.json();
+
+
+    const resultBox =
+        document.getElementById("result");
+
+
+    if (result.success) {
+
+        resultBox.innerHTML =
+
+            `✅ Booking Successful!<br>
+             <strong>${selectedEvent}</strong><br>
+             Seat: ${result.seat}<br>
+             Server: ${result.server}<br>
+             Latency: ${result.latency}`;
+
+        resultBox.className =
+            "success";
+
+    } else {
+
+        resultBox.innerHTML =
+            "❌ Booking Failed — Seat already booked.";
+
+        resultBox.className =
+            "error";
+
+    }
+
+
+    selectedSeat = null;
+
+    document.getElementById("selected")
+        .innerText =
+        "Selected Seat: None";
+
+
+    loadSeats();
+
+}
+
+</script>
+
+</body>
+
+</html>
